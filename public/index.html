@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberQuiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="topo">
+      <div class="marca">CYBER<span>QUIZ</span></div>
+      <p>Teste seus conhecimentos em tecnologia</p>
+    </header>
+
+    <section id="auth" class="painel">
+      <h1>Entre para jogar</h1>
+      <p class="subtitulo">Crie uma conta ou entre com seu e-mail.</p>
+      <div class="abas">
+        <button id="abaLogin" class="aba ativa" type="button">Entrar</button>
+        <button id="abaCadastro" class="aba" type="button">Criar conta</button>
+      </div>
+      <form id="formAuth">
+        <label for="nome">Nome <span id="nomeObrigatorio">(apenas no cadastro)</span></label>
+        <input id="nome" name="nome" autocomplete="name" placeholder="Seu nome">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com">
+        <label for="senha">Senha</label>
+        <input id="senha" name="senha" type="password" minlength="6" autocomplete="current-password" required placeholder="Mínimo de 6 caracteres">
+        <button class="principal" type="submit" id="btnAuth">Entrar</button>
+      </form>
+      <p id="mensagemAuth" class="mensagem" role="status"></p>
+    </section>
+
+    <section id="jogo" class="painel escondido">
+      <div class="linha">
+        <div>
+          <p class="etiqueta">JOGADOR</p>
+          <h2 id="boasVindas">Olá!</h2>
+        </div>
+        <button id="btnSair" class="secundario" type="button">Sair</button>
+      </div>
+
+      <div class="placar">
+        <div><span>Pontos</span><strong id="pontos">0</strong></div>
+        <div><span>Respondidas</span><strong id="respondidas">0</strong></div>
+        <div><span>Acertos</span><strong id="acertos">0</strong></div>
+      </div>
+
+      <label for="categoria">Escolha uma categoria</label>
+      <select id="categoria">
+        <option value="">Todas as categorias</option>
+      </select>
+      <button id="btnCarregar" class="principal" type="button">Começar / Próxima pergunta</button>
+
+      <div id="areaPergunta" class="area-pergunta escondido">
+        <p id="nomeCategoria" class="etiqueta"></p>
+        <h2 id="enunciado"></h2>
+        <form id="formResposta">
+          <div id="alternativas" class="alternativas"></div>
+          <button id="btnResponder" class="principal" type="submit">Confirmar resposta</button>
+        </form>
+        <div id="resultado" class="resultado" role="status" aria-live="polite"></div>
+        <button id="btnProxima" class="principal escondido" type="button">Próxima pergunta</button>
+      </div>
+      <p id="mensagemJogo" class="mensagem" role="status"></p>
+    </section>
+    <footer>CyberQuiz • Aprenda tecnologia jogando</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
